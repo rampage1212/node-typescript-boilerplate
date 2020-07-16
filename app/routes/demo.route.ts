@@ -9,6 +9,7 @@ export class DemoRoutes {
         this.controller = new DemoController();
     }
     get routes() {
+        this.router.get('/error', asyncHandler(this.controller.getError));
         this.router.get('/', asyncHandler(this.controller.getRecord));
         this.router.post('/', asyncHandler(this.controller.createRecord));
         this.router.put('/', asyncHandler(this.controller.updateRecord));
